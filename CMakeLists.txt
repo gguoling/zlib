@@ -220,6 +220,8 @@ if(UNIX)
 elseif(BUILD_SHARED_LIBS AND WIN32)
     # Creates zlib1.dll when building shared library version
     set_target_properties(zlib PROPERTIES SUFFIX "1.dll")
+elseif(ENABLE_STATIC AND WIN32)
+    set_target_properties(zlibstatic PROPERTIES OUTPUT_NAME zlib)
 endif()
 
 if(NOT SKIP_INSTALL_LIBRARIES AND NOT SKIP_INSTALL_ALL )
